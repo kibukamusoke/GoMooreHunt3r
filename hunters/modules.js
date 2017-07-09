@@ -14,7 +14,6 @@ module.exports = {
         // last 20pages
         for(var x=1;x<21;x++){
             var options = core.buildOptions('http://www.padini.com/deals.html?p='+x);
-            //var options = core.buildOptions('https://news.ycombinator.com');
             requestPromise(options).
             then(function($){
                 padiniProcessor.padiniProcess($)
