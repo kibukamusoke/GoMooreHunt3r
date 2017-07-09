@@ -2,7 +2,7 @@
  * Created by Trevor on 7/10/17.
  */
 
-var cheerio = require('cheerio');
+let cheerio = require('cheerio');
 
 
 module.exports = {

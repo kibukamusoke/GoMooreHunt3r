@@ -51,7 +51,7 @@ module.exports = {
     },
 
     fos: function(){
-        console.log('get fos data as well?');
+        console.log('get fos data??');
     }
 
 };

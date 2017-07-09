@@ -2,34 +2,34 @@
  * Created by Trevor on 7/10/17.
  */
 
-var db = require('./core/mongo');
+let db = require('./core/mongo');
 
 module.exports = {
 
     padiniProcess: function($){
 
-        var metadataJson = [];
-        var index = 0;
+        let metadataJson = [];
+        let index = 0;
         $('li.item').each(function (i, element) {
             index++;
             //console.log($(this));
-            var inner = $(this).children('.inner');
-            var productWrapper = inner.children('.product-image-wrapper');
-            var infoUrl = productWrapper.children();
-            var href = infoUrl.attr('href');
-            var imageInfo = infoUrl.children('img');
-            var image = imageInfo.attr('src');
+            let inner = $(this).children('.inner');
+            let productWrapper = inner.children('.product-image-wrapper');
+            let infoUrl = productWrapper.children();
+            let href = infoUrl.attr('href');
+            let imageInfo = infoUrl.children('img');
+            let image = imageInfo.attr('src');
 
-            var brandname = inner.children('.brand-name');
-            var productNameData = inner.children('h2');
-            var productNameDetail = productNameData.children();
-            var productName = productNameDetail.attr('title');
-            var price = inner.children('.price-box');
-            var PriceData = price.children();
-            var Price = PriceData.children('.price').text().replace('\\n','').trim().split('\n');
-            var oldPrice = Price[0].trim();
-            var newPrice = Price[1].trim();
-            var item = {
+            let brandname = inner.children('.brand-name');
+            let productNameData = inner.children('h2');
+            let productNameDetail = productNameData.children();
+            let productName = productNameDetail.attr('title');
+            let price = inner.children('.price-box');
+            let PriceData = price.children();
+            let Price = PriceData.children('.price').text().replace('\\n','').trim().split('\n');
+            let oldPrice = Price[0].trim();
+            let newPrice = Price[1].trim();
+            let item = {
                 index:index,
                 source:'padini',
                 url:href,
@@ -40,7 +40,7 @@ module.exports = {
                 newPrice:newPrice
             };
 
-            var filter = {
+            let filter = {
               url:href
             };
 
@@ -56,18 +56,18 @@ module.exports = {
     },
 
     padiniProcessTest: function ($) {
-        var metadataJson = [];
+        let metadataJson = [];
         $('span.comhead').each(function (i, element) {
-            var a = $(this).prev();
-            var rank = a.parent().parent().text();
-            var title = a.text();
-            var url = a.attr('href');
-            var subtext = a.parent().parent().next().children('.subtext').children();
-            var points = $(subtext).eq(0).text();
-            var username = $(subtext).eq(1).text();
-            var comments = $(subtext).eq(2).text();
+            let a = $(this).prev();
+            let rank = a.parent().parent().text();
+            let title = a.text();
+            let url = a.attr('href');
+            let subtext = a.parent().parent().next().children('.subtext').children();
+            let points = $(subtext).eq(0).text();
+            let username = $(subtext).eq(1).text();
+            let comments = $(subtext).eq(2).text();
             // Our parsed meta data object
-            var metadata = {
+            let metadata = {
                 rank: parseInt(rank),
                 title: title,
                 url: url,
