@@ -1,0 +1,28 @@
+{
+  "name": "hunt3r",
+  "version": "1.0.0",
+  "description": "GoMoore Web Scraper || AKA TheHUNTER!!!",
+  "main": "init.js",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "request": "^2.81.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node init.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kibukamusoke/GoMooreHunt3r.git"
+  },
+  "keywords": [
+    "GoMoore",
+    "Hunt3r"
+  ],
+  "author": "Trevor Suna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kibukamusoke/GoMooreHunt3r/issues"
+  },
+  "homepage": "https://github.com/kibukamusoke/GoMooreHunt3r#readme"
+}
