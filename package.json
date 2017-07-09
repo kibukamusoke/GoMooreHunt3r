@@ -4,8 +4,13 @@
   "description": "GoMoore Web Scraper || AKA TheHUNTER!!!",
   "main": "init.js",
   "dependencies": {
+    "assert": "^1.4.1",
+    "bluebird": "^3.5.0",
+    "bson": "^1.0.4",
     "cheerio": "^1.0.0-rc.2",
-    "request": "^2.81.0"
+    "mongodb": "^2.2.30",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
   },
   "devDependencies": {},
   "scripts": {
