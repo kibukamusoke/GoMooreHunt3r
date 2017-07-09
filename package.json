@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "GoMoore Web Scraper || AKA TheHUNTER!!!",
   "main": "init.js",
-  "start" : "node init.js",
   "dependencies": {
     "assert": "^1.4.1",
     "bluebird": "^3.5.0",
@@ -15,7 +14,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "node init.js"
+    "test": "node init.js",
+    "start": "node init.js"
   },
   "repository": {
     "type": "git",
