@@ -35,8 +35,17 @@ module.exports = {
             //assert.equal(1, result);
 
             if (err) throw err;
+            console.log(result);
 
         });
+
+    },
+
+    update: function(filter,doc){
+        connection.collection('hunt3r').updateOne(filter,doc,{upsert:true}, function (err, result) {
+            if (err) throw err;
+            console.log('upserted ID : ' + result.upsertedId);
+        })
     }
 
 

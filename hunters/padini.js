@@ -39,13 +39,17 @@ module.exports = {
                 newPrice:newPrice
             };
 
+            var filter = {
+              url:href
+            };
 
+            db.update(filter,item); // upsert
             metadataJson.push(item);
             //console.log(item);
 
         });
 
-        db.insert(metadataJson);
+        //db.insert(metadataJson); // bulk insert
         //console.log(metadataJson);
 
     },

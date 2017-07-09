@@ -11,6 +11,7 @@ var core = require('./core/core');
 module.exports = {
 
     padini: function () {
+        // TODO : get number of pages and iterate over all of them.
         var options = core.buildOptions('http://www.padini.com/deals.html');
         //var options = core.buildOptions('https://news.ycombinator.com');
         requestPromise(options).
