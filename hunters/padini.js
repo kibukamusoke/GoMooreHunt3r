@@ -31,6 +31,7 @@ module.exports = {
             var newPrice = Price[1].trim();
             var item = {
                 index:index,
+                source:'padini',
                 url:href,
                 image:image,
                 brandname:brandname.text(),

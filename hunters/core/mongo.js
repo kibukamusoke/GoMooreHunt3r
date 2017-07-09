@@ -2,7 +2,9 @@
  * Created by Trevor on 7/10/17.
  */
 
-var Db = require('mongodb').Db,
+let Promise = require('bluebird');
+
+let Db = require('mongodb').Db,
     MongoClient = require('mongodb').MongoClient,
     Server = require('mongodb').Server,
     ReplSetServers = require('mongodb').ReplSetServers,
@@ -14,38 +16,67 @@ var Db = require('mongodb').Db,
    // BSON = require('mongodb').pure().BSON,
     assert = require('assert');
 
+let connection;
 
-var connection;
+function getConnection () {
+    return new Promise((resolve,reject) => {
+        if(typeof connection !== 'undefined'){
+            resolve(connection);
+        } else {
+            MongoClient.connect(
+                "mongodb://gomoore:gomoore@ds147882.mlab.com:47882/simspin",
+                {native_parser: true},
+                function (err, db) {
+                    assert.equal(null, err);
+                    if (db) {
+                        connection = db;
+                        resolve(db);
+                    } else {
+                        console.log(err);
+                        reject(err);
+                    }
+                });
+        }
+    })
+}
 
-MongoClient.connect("mongodb://gomoore:gomoore@ds147882.mlab.com:47882/simspin", {native_parser:true}, function(err, db) {
-    assert.equal(null, err);
 
-    connection = db;
-});
-
-var close = function () {
-    connection.close();
+let close = function () {
+    if(typeof connection !== 'undefined') {
+        connection.close();
+    }
 };
 
 module.exports = {
 
     insert: function(docs){
-        connection.collection('hunt3r').insertMany(docs, function (err, result) {
-            //assert.equal(null, err);
-            //assert.equal(1, result);
+        getConnection().then(connection =>
+                connection.collection('hunt3r').insertMany(docs, function (err, result) {
+                //assert.equal(null, err);
+                //assert.equal(1, result);
 
-            if (err) throw err;
-            console.log(result);
+                if (err) throw err;
+                console.log(result);
 
+            })).catch(error => {
+            console.log(error);
         });
 
     },
 
     update: function(filter,doc){
-        connection.collection('hunt3r').updateOne(filter,doc,{upsert:true}, function (err, result) {
-            if (err) throw err;
-            console.log('upserted ID : ' + result.upsertedId);
-        })
+        //console.log(connection);
+        getConnection().then(connection =>
+            connection.collection('hunt3r').updateOne(filter,doc,{upsert:true}, function (err, result) {
+                if (err) {
+                    console.log(err);
+                }
+                console.log('upserted ID : ' + result.upsertedId);
+            })
+        ).catch(error => {
+            console.log(error);
+        });
+
     }
 
 
