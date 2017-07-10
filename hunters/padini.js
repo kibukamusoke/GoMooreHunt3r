@@ -35,7 +35,7 @@ module.exports = {
                 url:href,
                 image:image,
                 brandname:brandname.text(),
-                productname:productName,
+                productName:productName,
                 oldPrice:oldPrice,
                 newPrice:newPrice
             };

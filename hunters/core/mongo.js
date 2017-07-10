@@ -17,6 +17,7 @@ let Db = require('mongodb').Db,
     assert = require('assert');
 
 let connection;
+let collectionName = 'hunt3r';
 
 function getConnection () {
     return new Promise((resolve,reject) => {
@@ -49,9 +50,13 @@ let close = function () {
 
 module.exports = {
 
+    close: function () {
+      close();
+    },
+
     insert: function(docs){
         getConnection().then(connection =>
-                connection.collection('hunt3r').insertMany(docs, function (err, result) {
+                connection.collection(collectionName).insertMany(docs, function (err, result) {
                 //assert.equal(null, err);
                 //assert.equal(1, result);
 
@@ -64,10 +69,10 @@ module.exports = {
 
     },
 
-    update: function(filter,doc){
+    update: function(filter,doc,upsert=true){
         //console.log(connection);
         getConnection().then(connection =>
-            connection.collection('hunt3r').updateOne(filter,doc,{upsert:true}, function (err, result) {
+            connection.collection(collectionName).updateOne(filter,doc,{upsert:upsert}, function (err, result) {
                 if (err) {
                     console.log(err);
                 }
@@ -77,6 +82,24 @@ module.exports = {
             console.log(error);
         });
 
+    },
+
+    query: function(filter,options){
+        return new Promise((resolve,reject) => {
+            getConnection().then(connection => {
+                let stream = connection.collection(collectionName)
+                    .find(filter, options)
+                    .stream();
+
+                if(stream){
+                    resolve(stream)
+                }
+                else {
+                    reject(error);
+                }
+
+            });
+        })
     }
 
 

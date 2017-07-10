@@ -14,6 +14,10 @@ let uniqloProcessor = require('./uniqlo');
 
 module.exports = {
 
+    processPosts: function () {
+        core.processPostQueue();
+    },
+
     padini: function () {
         // last 20pages
         for(let x=1;x<21;x++){
