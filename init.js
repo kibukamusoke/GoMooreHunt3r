@@ -6,11 +6,13 @@ let schedule = require('node-schedule');
 let modules = require('./hunters/modules');
 //modules.padini();
 //modules.uniqlo();
-//modules.processPosts();
+//modules.eos();
+modules.processPosts();
 
 let job = schedule.scheduleJob('* * */6 * * *', function(){ // run every 6 hours..
     modules.padini();
     modules.uniqlo();
+    modules.eos();
     modules.processPosts();
 });
 

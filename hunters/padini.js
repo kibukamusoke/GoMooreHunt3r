@@ -32,12 +32,15 @@ module.exports = {
             let item = {
                 index:index,
                 source:'padini',
+                contact:'+603 5021 0600',
+                location:'Lot G52,AEON Bukit Tinggi Shopping Centre NO.1, Persiaran Batu Nilam 1/KS6 Bandar Bukit Tinggi 2 Selangor Malaysia',
                 url:href,
                 image:image,
                 brandname:brandname.text(),
                 productName:productName,
                 oldPrice:oldPrice,
-                newPrice:newPrice
+                newPrice:newPrice,
+                status:0
             };
 
             let filter = {

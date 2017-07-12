@@ -9,6 +9,7 @@ let core = require('./core/core');
 
 let padiniProcessor = require('./padini');
 let uniqloProcessor = require('./uniqlo');
+let eosProcessor = require('./everydayonsale');
 
 
 
@@ -52,6 +53,20 @@ module.exports = {
             })
         }
 
+    },
+
+    eos: function () {
+        // last 20pages
+        for(let x=1;x<21;x++) {
+            let options = core.buildOptions('http://www.everydayonsales.com/promotion-and-sales-malaysia/page/' + x);
+            requestPromise(options)
+                .then(function ($) {
+                    eosProcessor.eosProcess($);
+                })
+                .catch(function (err) {
+                    console.log(err);
+                })
+        }
     },
 
     fos: function(){

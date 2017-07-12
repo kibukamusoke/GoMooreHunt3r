@@ -69,7 +69,10 @@ module.exports = {
 
     },
 
-    update: function(filter,doc,upsert=true){
+    update: function(filter,doc,upsert=true,set=true){
+        if(set){
+            doc = {$set : doc};
+        }
         //console.log(connection);
         getConnection().then(connection =>
             connection.collection(collectionName).updateOne(filter,doc,{upsert:upsert}, function (err, result) {

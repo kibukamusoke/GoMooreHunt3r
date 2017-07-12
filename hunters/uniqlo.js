@@ -28,11 +28,14 @@ module.exports = {
             let item = {
                 index: index,
                 source: 'uniqlo',
+                contact:'+603 5523 4850',
+                location:'G-39, Ground Floor, AEON Mall Shah Alam, No.1, Jalan Akuatik 13/64, D’Kayangan, Seksyen 13, 40100 Shah Alam, Selangor',
                 url: href,
                 image: image,
                 productName: productName,
                 oldPrice: oldPrice,
-                newPrice: newPrice
+                newPrice: newPrice,
+                status:0
             };
             let filter = {
                 url: href
