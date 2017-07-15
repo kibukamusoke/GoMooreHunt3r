@@ -32,7 +32,7 @@ function postToBackend(payload) {
 
     let options = {
         method: 'POST',
-        uri: 'https://a1.go-moore.com/index.php/Services/Campaign_Creation/add_campaign',
+        uri: process.env.POST_URL || 'https://a1.go-moore.com/index.php/Services/Campaign_Creation/add_campaign',
         body: adjustedPayload,
         json: true // Automatically stringifies the body to JSON
     };
