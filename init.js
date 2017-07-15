@@ -48,4 +48,9 @@ schedule.scheduleJob({hour: 8, minute: 51}, function(){
 
 
 
+let port = process.env.PORT || 4044;
+let httpServer = require('http').createServer();
+httpServer.listen(port, function() {
+    console.log('go-moore hunter running on port ' + port + '.');
+});
 
