@@ -10,8 +10,9 @@ let core = require('./core/core');
 let padiniProcessor = require('./padini');
 let uniqloProcessor = require('./uniqlo');
 let eosProcessor = require('./everydayonsale');
-
-
+let directdProcessor = require('./directd');
+let thmProcessor = require('./techhypermart');
+let boniaProcessor = require('./bonia');
 
 module.exports = {
 
@@ -67,6 +68,113 @@ module.exports = {
                     console.log(err);
                 })
         }
+    },
+
+    directd: function () {
+
+            let options = core.buildOptions('http://directd.com.my/newproducts');
+            requestPromise(options).
+            then(function($){
+                directdProcessor.directdProcess($);
+            }).
+            catch(function(err){
+                console.log(err);
+            })
+
+
+    },
+    techhypermart: function(){
+
+        let root = 'http://www.techhypermart.com';
+        let pages = [
+            {
+                page: '/notebooks.html',
+                pageCount: 20
+            },
+            {
+                page: '/apple-mac.html',
+                pageCount: 1
+           },
+            {
+                page: '/mobile-phones.html',
+                pageCount: 3
+            },
+            {
+                page: '/tablets.html',
+                pageCount: 2
+            },
+            {
+                page: '/computers.html',
+                pageCount: 20
+            },
+            {
+                page: '/pc-parts/motherboard.html',
+                pageCount: 5
+            },
+            {
+                page: '/pc-parts/cpu-processors.html',
+                pageCount: 3
+            },
+            {
+                page: '/pc-parts/ram-memory.html',
+                pageCount: 4
+            },
+            {
+                page: '/pc-parts/laptop-parts.html',
+                pageCount:8
+            },
+            {
+                page: '/printer.html',
+                pageCount: 40
+            },
+            {
+                page: '/projector.html',
+                pageCount: 7
+            },
+
+        ];
+
+
+        for(let page of pages){
+
+            for(let x=1;x<page.pageCount;x++){
+
+                let options = core.buildOptions(root + page.page+'?p='+x);
+
+                setTimeout(function () {
+                    requestPromise(options).
+                    then(function($){
+                        thmProcessor.thmProcess($)
+                    }).
+                    catch(function(err){
+                        console.log(err);
+                    },15000);
+                })
+
+
+            }
+
+        }
+
+    },
+    bonia: function(){
+
+        let offerPages = [
+            'http://www.bonia.com/promotion/women.html',
+            'http://www.bonia.com/promotion/men.html'
+        ];
+
+        for(let page of offerPages){
+            let options = core.buildOptions(page);
+            requestPromise(options).
+            then(function($){
+                boniaProcessor.boniaProcess($)
+            }).
+            catch(function(err){
+                console.log(err);
+            })
+        }
+
     },
 
     fos: function(){

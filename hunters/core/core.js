@@ -18,7 +18,7 @@ function postToBackend(payload) {
 
     adjustedPayload = {
         title:payload.productName,
-        long_text:payload.productName,
+        long_text:(payload.description) ? payload.description : payload.productName,
         detail_url:payload.url,
         video_url:'',
         sales_promotion:payload.productName,
