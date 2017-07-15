@@ -18,6 +18,11 @@ let processAtStr = process.env.PROCESS_AT || '04:30';
 let runAt = runAtStr.split(':');
 let processAt = processAtStr.split(':');
 
+let newDate = new Date();
+let datetime = "LastSync: " + newDate.today() + " @ " + newDate.timeNow();
+
+console.log(datetime);
+
 schedule.scheduleJob({hour: runAt[0], minute:runAt[1]}, function () {
     modules.padini();
     modules.uniqlo();
