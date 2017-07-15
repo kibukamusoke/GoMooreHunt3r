@@ -27,7 +27,7 @@ function getConnection () {
             resolve(connection);
         } else {
             MongoClient.connect(
-                databaseUri || "mongodb://gomoore:gomoore@ds147882.mlab.com:47882/simspin",
+                databaseUri || "mongodb://heroku_83cgm4g4:ko1l3jc6e3japj0mifqe52sija@ds139262.mlab.com:39262/heroku_83cgm4g4",
                 {native_parser: true},
                 function (err, db) {
                     assert.equal(null, err);

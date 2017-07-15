@@ -5,8 +5,8 @@
 let schedule = require('node-schedule');
 let modules = require('./hunters/modules');
 
-let runAtStr = process.env.RUN_AT || '04:00';
-let processAtStr = process.env.PROCESS_AT || '04:30';
+let runAtStr = process.env.RUN_AT || '12:23';
+let processAtStr = process.env.PROCESS_AT || '12:33';
 //modules.padini();
 //modules.uniqlo();
 //modules.eos();
@@ -20,11 +20,11 @@ let processAt = processAtStr.split(':');
 
 let moment = require('moment');
 let now = moment();
-let formatted = now.format('YYYY-MM-DD HH:mm:ss Z')
+let formatted = now.format('YYYY-MM-DD HH:mm:ss Z');
 console.log(formatted)
+//modules.processPosts();
 
-
-schedule.scheduleJob({hour: runAt[0], minute:runAt[1]}, function () {
+schedule.scheduleJob({hour: Number(runAt[0]) + 8, minute:runAt[1]}, function () {
     modules.padini();
     modules.uniqlo();
     modules.eos();
@@ -33,7 +33,7 @@ schedule.scheduleJob({hour: runAt[0], minute:runAt[1]}, function () {
     modules.bonia();
 });
 
-schedule.scheduleJob({hour: processAt[0], minute:processAt[1]}, function () {
+schedule.scheduleJob({hour: Number(processAt[0]) + 8, minute:processAt[1]}, function () {
     modules.processPosts();
 });
 

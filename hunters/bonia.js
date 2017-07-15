@@ -38,7 +38,7 @@ module.exports = {
             index++;
             let imageData = $(this).children('.item-product-image-box');
             let href = imageData.children('a').attr('href');
-            let image = imageData.children('.front').children('img').attr('src');
+            let image = imageData.children('a').children('.front').children('img').attr('src');
 
             let productName = $(this).children('h3.product-name').children('a').text().trim();
 
