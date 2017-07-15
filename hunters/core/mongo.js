@@ -18,6 +18,7 @@ let Db = require('mongodb').Db,
 
 let connection;
 let collectionName = 'hunt3r';
+let databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 
 function getConnection () {
     return new Promise((resolve,reject) => {
@@ -25,7 +26,7 @@ function getConnection () {
             resolve(connection);
         } else {
             MongoClient.connect(
-                "mongodb://gomoore:gomoore@ds147882.mlab.com:47882/simspin",
+                databaseUri || "mongodb://gomoore:gomoore@ds147882.mlab.com:47882/simspin",
                 {native_parser: true},
                 function (err, db) {
                     assert.equal(null, err);
