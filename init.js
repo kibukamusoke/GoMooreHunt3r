@@ -31,7 +31,6 @@ schedule.scheduleJob({hour: processAt[0], minute:processAt[1]}, function () {
     modules.processPosts();
 });
 
-
 //let job = schedule.scheduleJob('* * */6 * * *', function(){ // run every 6 hours..
 //    modules.padini();
 //    modules.uniqlo();
