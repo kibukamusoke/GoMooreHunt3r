@@ -18,11 +18,10 @@ let processAtStr = process.env.PROCESS_AT || '04:30';
 let runAt = runAtStr.split(':');
 let processAt = processAtStr.split(':');
 
-let dateTime = require('node-datetime');
-let dt = dateTime.create();
-let formatted = dt.format('Y-m-d H:M:S');
-console.log(formatted);
-console.log(datetime);
+let moment = require('moment');
+let now = moment();
+let formatted = now.format('YYYY-MM-DD HH:mm:ss Z')
+console.log(formatted)
 
 schedule.scheduleJob({hour: runAt[0], minute:runAt[1]}, function () {
     modules.padini();

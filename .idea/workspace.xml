@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c3ce944d-849a-4cb6-ad31-8646d440f080" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/init.js" afterPath="$PROJECT_DIR$/init.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,8 +23,8 @@
       <file leaf-file-name="init.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/init.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="800">
-              <caret line="20" column="6" lean-forward="true" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+            <state relative-caret-position="680">
+              <caret line="20" column="31" lean-forward="false" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -41,20 +44,8 @@
         <entry file="file://$PROJECT_DIR$/hunters/padini.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1194">
-              <caret line="87" column="2" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="87" selection-end-column="2" />
+              <caret line="87" column="2" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="87" selection-end-column="2" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="everydayonsale.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hunters/everydayonsale.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-              <folding>
-                <element signature="e#0#40#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -63,7 +54,7 @@
         <entry file="file://$PROJECT_DIR$/hunters/core/core.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="589">
-              <caret line="35" column="30" lean-forward="true" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+              <caret line="35" column="30" lean-forward="false" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -83,7 +74,7 @@
         <entry file="file://$PROJECT_DIR$/hunters/directd.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1417">
-              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -99,11 +90,26 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-200">
+              <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+              <folding>
+                <marker date="1500117545272" expanded="true" signature="143:396" ph="{&quot;assert&quot;: &quot;^1.4.1&quot;...}" />
+                <marker date="1500117545272" expanded="true" signature="436:497" ph="{&quot;test&quot;: &quot;node init.js&quot;...}" />
+                <marker date="1500117545272" expanded="true" signature="515:606" ph="{&quot;type&quot;: &quot;git&quot;...}" />
+                <marker date="1500117545272" expanded="true" signature="622:655" ph="[...]" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="uniqlo.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hunters/uniqlo.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="390">
-              <caret line="26" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="48" selection-end-column="2" />
+              <caret line="26" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="48" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -113,7 +119,7 @@
         <entry file="file://$PROJECT_DIR$/hunters/bonia.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1309">
-              <caret line="56" column="13" lean-forward="true" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
+              <caret line="56" column="13" lean-forward="false" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
               <folding>
                 <element signature="e#0#41#0" expanded="false" />
               </folding>
@@ -157,7 +163,6 @@
         <option value="$PROJECT_DIR$/hunters/processor.js" />
         <option value="$PROJECT_DIR$/hunters/test.js" />
         <option value="$PROJECT_DIR$/hunters/init.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/hunters/uniqlo.js" />
         <option value="$PROJECT_DIR$/hunters/padini.js" />
@@ -168,6 +173,7 @@
         <option value="$PROJECT_DIR$/hunters/bonia.js" />
         <option value="$PROJECT_DIR$/hunters/core/mongo.js" />
         <option value="$PROJECT_DIR$/hunters/core/core.js" />
+        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/init.js" />
       </list>
     </option>
@@ -405,7 +411,7 @@
       <workItem from="1499784748338" duration="592000" />
       <workItem from="1499788822848" duration="183000" />
       <workItem from="1499830697977" duration="658000" />
-      <workItem from="1500100503212" duration="16506000" />
+      <workItem from="1500100503212" duration="17227000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1499606986079</created>
@@ -547,11 +553,18 @@
       <option name="project" value="LOCAL" />
       <updated>1500117090987</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="-- added b uri environment variable">
+      <created>1500117191847</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1500117191847</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73154000" />
+    <option name="totallyTimeSpent" value="73875000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-16" y="-16" width="3232" height="1732" extended-state="6" />
@@ -873,14 +886,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="18" column="27" lean-forward="false" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hunters/everydayonsale.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -902,7 +907,7 @@
     <entry file="file://$PROJECT_DIR$/hunters/directd.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1417">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -910,7 +915,7 @@
     <entry file="file://$PROJECT_DIR$/hunters/padini.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1194">
-          <caret line="87" column="2" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="87" selection-end-column="2" />
+          <caret line="87" column="2" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="87" selection-end-column="2" />
           <folding />
         </state>
       </provider>
@@ -918,7 +923,7 @@
     <entry file="file://$PROJECT_DIR$/hunters/uniqlo.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="48" selection-end-column="2" />
+          <caret line="26" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="48" selection-end-column="2" />
           <folding />
         </state>
       </provider>
@@ -926,7 +931,7 @@
     <entry file="file://$PROJECT_DIR$/hunters/bonia.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1309">
-          <caret line="56" column="13" lean-forward="true" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
+          <caret line="56" column="13" lean-forward="false" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
           <folding>
             <element signature="e#0#41#0" expanded="false" />
           </folding>
@@ -944,7 +949,7 @@
     <entry file="file://$PROJECT_DIR$/hunters/core/core.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="589">
-          <caret line="35" column="30" lean-forward="true" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+          <caret line="35" column="30" lean-forward="false" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -957,10 +962,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-200">
+          <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+          <folding>
+            <marker date="1500117545272" expanded="true" signature="143:396" ph="{&quot;assert&quot;: &quot;^1.4.1&quot;...}" />
+            <marker date="1500117545272" expanded="true" signature="436:497" ph="{&quot;test&quot;: &quot;node init.js&quot;...}" />
+            <marker date="1500117545272" expanded="true" signature="515:606" ph="{&quot;type&quot;: &quot;git&quot;...}" />
+            <marker date="1500117545272" expanded="true" signature="622:655" ph="[...]" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/init.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="20" column="6" lean-forward="true" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+        <state relative-caret-position="680">
+          <caret line="20" column="31" lean-forward="false" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
           <folding />
         </state>
       </provider>
