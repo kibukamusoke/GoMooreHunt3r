@@ -23,6 +23,7 @@ let now = moment();
 let formatted = now.format('YYYY-MM-DD HH:mm:ss Z')
 console.log(formatted)
 
+
 schedule.scheduleJob({hour: runAt[0], minute:runAt[1]}, function () {
     modules.padini();
     modules.uniqlo();
