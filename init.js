@@ -5,8 +5,10 @@
 let schedule = require('node-schedule');
 let modules = require('./hunters/modules');
 
-let runAtStr = process.env.RUN_AT || '13:05';
-let processAtStr = process.env.PROCESS_AT || '13:15';
+let runAtStr = process.env.RUN_AT || '13:20';
+let processAtStr = process.env.PROCESS_AT || '13:30';
+
+console.log('set to run at ' + process.env.RUN_AT || 'sys var not set..');
 //modules.padini();
 //modules.uniqlo();
 //modules.eos();
