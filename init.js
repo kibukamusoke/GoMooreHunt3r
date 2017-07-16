@@ -5,8 +5,8 @@
 let schedule = require('node-schedule');
 let modules = require('./hunters/modules');
 
-let runAtStr = process.env.RUN_AT || '12:23';
-let processAtStr = process.env.PROCESS_AT || '12:33';
+let runAtStr = process.env.RUN_AT || '13:05';
+let processAtStr = process.env.PROCESS_AT || '13:15';
 //modules.padini();
 //modules.uniqlo();
 //modules.eos();

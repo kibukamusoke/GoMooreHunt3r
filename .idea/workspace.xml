@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c3ce944d-849a-4cb6-ad31-8646d440f080" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hunters/bonia.js" afterPath="$PROJECT_DIR$/hunters/bonia.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hunters/core/mongo.js" afterPath="$PROJECT_DIR$/hunters/core/mongo.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/init.js" afterPath="$PROJECT_DIR$/init.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -23,8 +21,8 @@
       <file leaf-file-name="init.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/init.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="14" column="20" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+            <state relative-caret-position="160">
+              <caret line="8" column="51" lean-forward="false" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -33,7 +31,7 @@
       <file leaf-file-name="modules.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hunters/modules.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="760">
+            <state relative-caret-position="380">
               <caret line="19" column="29" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="29" />
               <folding />
             </state>
@@ -43,7 +41,7 @@
       <file leaf-file-name="padini.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hunters/padini.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1194">
+            <state relative-caret-position="1740">
               <caret line="87" column="2" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="87" selection-end-column="2" />
               <folding />
             </state>
@@ -53,8 +51,8 @@
       <file leaf-file-name="core.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hunters/core/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1080">
-              <caret line="39" column="33" lean-forward="true" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
+            <state relative-caret-position="780">
+              <caret line="39" column="33" lean-forward="false" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -63,7 +61,7 @@
       <file leaf-file-name="mongo.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hunters/core/mongo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="800">
+            <state relative-caret-position="580">
               <caret line="29" column="124" lean-forward="false" selection-start-line="29" selection-start-column="124" selection-end-line="29" selection-end-column="124" />
               <folding />
             </state>
@@ -73,7 +71,7 @@
       <file leaf-file-name="directd.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hunters/directd.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1417">
+            <state relative-caret-position="160">
               <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
@@ -83,7 +81,7 @@
       <file leaf-file-name="techhypermart.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hunters/techhypermart.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
+            <state relative-caret-position="960">
               <caret line="50" column="16" lean-forward="false" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
               <folding />
             </state>
@@ -93,14 +91,9 @@
       <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-200">
+            <state relative-caret-position="180">
               <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-              <folding>
-                <marker date="1500117545272" expanded="true" signature="143:396" ph="{&quot;assert&quot;: &quot;^1.4.1&quot;...}" />
-                <marker date="1500117545272" expanded="true" signature="436:497" ph="{&quot;test&quot;: &quot;node init.js&quot;...}" />
-                <marker date="1500117545272" expanded="true" signature="515:606" ph="{&quot;type&quot;: &quot;git&quot;...}" />
-                <marker date="1500117545272" expanded="true" signature="622:655" ph="[...]" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -108,7 +101,7 @@
       <file leaf-file-name="uniqlo.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hunters/uniqlo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
+            <state relative-caret-position="520">
               <caret line="26" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="48" selection-end-column="2" />
               <folding />
             </state>
@@ -118,7 +111,7 @@
       <file leaf-file-name="bonia.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hunters/bonia.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1189">
+            <state relative-caret-position="760">
               <caret line="40" column="29" lean-forward="false" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
               <folding>
                 <element signature="e#0#41#0" expanded="false" />
@@ -195,10 +188,10 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-16" />
-    <option name="y" value="-16" />
-    <option name="width" value="3232" />
-    <option name="height" value="1732" />
+    <option name="x" value="65" />
+    <option name="y" value="-4" />
+    <option name="width" value="1855" />
+    <option name="height" value="1084" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -219,7 +212,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -266,6 +258,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -277,7 +270,7 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="JavaScriptPreferStrict" value="false" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../TADAT/TadatParse" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../TadatParse" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -413,6 +406,7 @@
       <workItem from="1499788822848" duration="183000" />
       <workItem from="1499830697977" duration="658000" />
       <workItem from="1500100503212" duration="21610000" />
+      <workItem from="1500209273487" duration="679000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1499606986079</created>
@@ -579,20 +573,20 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78258000" />
+    <option name="totallyTimeSpent" value="78937000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-16" y="-16" width="3232" height="1732" extended-state="6" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1984375" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19838275" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.085579515" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40029326" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.085579515" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45754716" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45769623" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -632,7 +626,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -672,9 +665,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="34" column="26" lean-forward="true" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -897,7 +887,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -905,15 +894,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hunters/techhypermart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
+        <state relative-caret-position="960">
           <caret line="50" column="16" lean-forward="false" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
           <folding />
         </state>
@@ -921,7 +907,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hunters/directd.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1417">
+        <state relative-caret-position="160">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
@@ -929,7 +915,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hunters/padini.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1194">
+        <state relative-caret-position="1740">
           <caret line="87" column="2" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="87" selection-end-column="2" />
           <folding />
         </state>
@@ -937,7 +923,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hunters/uniqlo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
+        <state relative-caret-position="520">
           <caret line="26" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="48" selection-end-column="2" />
           <folding />
         </state>
@@ -945,20 +931,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-200">
+        <state relative-caret-position="180">
           <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-          <folding>
-            <marker date="1500117545272" expanded="true" signature="143:396" ph="{&quot;assert&quot;: &quot;^1.4.1&quot;...}" />
-            <marker date="1500117545272" expanded="true" signature="436:497" ph="{&quot;test&quot;: &quot;node init.js&quot;...}" />
-            <marker date="1500117545272" expanded="true" signature="515:606" ph="{&quot;type&quot;: &quot;git&quot;...}" />
-            <marker date="1500117545272" expanded="true" signature="622:655" ph="[...]" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hunters/modules.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
+        <state relative-caret-position="380">
           <caret line="19" column="29" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="29" />
           <folding />
         </state>
@@ -966,7 +947,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hunters/core/mongo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
+        <state relative-caret-position="580">
           <caret line="29" column="124" lean-forward="false" selection-start-line="29" selection-start-column="124" selection-end-line="29" selection-end-column="124" />
           <folding />
         </state>
@@ -974,7 +955,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hunters/bonia.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1189">
+        <state relative-caret-position="760">
           <caret line="40" column="29" lean-forward="false" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
           <folding>
             <element signature="e#0#41#0" expanded="false" />
@@ -984,16 +965,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hunters/core/core.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="39" column="33" lean-forward="true" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
+        <state relative-caret-position="780">
+          <caret line="39" column="33" lean-forward="false" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/init.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="14" column="20" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+        <state relative-caret-position="160">
+          <caret line="8" column="51" lean-forward="false" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="51" />
           <folding />
         </state>
       </provider>
