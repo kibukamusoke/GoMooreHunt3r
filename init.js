@@ -2,6 +2,8 @@
  * Created by Trevor on 7/9/17.
  */
 
+let express = require('express');
+
 let schedule = require('node-schedule');
 let modules = require('./hunters/modules');
 
@@ -54,11 +56,41 @@ schedule.scheduleJob({hour: 8, minute: 51}, function(){
 });
 
 
-
+/*
 let port = process.env.PORT || 4044;
 let httpServer = require('http').createServer();
 httpServer.listen(port, function() {
     console.log('go-moore hunter running on port ' + port + '.');
    // res.status(200).send('go-moore hunter running on port ' + port + '.');
 });
+*/
 
+let app = express();
+
+app.get('/run', function(req, res) {
+    res.status(200).send('Starting scrapper ... ');
+
+    modules.padini();
+    modules.uniqlo();
+    modules.eos();
+    modules.directd();
+    modules.techhypermart();
+    modules.bonia();
+
+});
+
+
+
+app.get('/process', function(req, res) {
+    res.status(200).send('Starting scrapper ... ');
+
+    modules.processPosts();
+
+});
+
+
+let port = process.env.PORT || 4408;
+let httpServer = require('http').createServer(app);
+httpServer.listen(port, function() {
+    console.log('hunt3r running on port ' + port);
+});
