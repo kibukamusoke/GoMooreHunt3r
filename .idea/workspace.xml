@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c3ce944d-849a-4cb6-ad31-8646d440f080" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/init.js" afterPath="$PROJECT_DIR$/init.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,10 +19,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="init.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="init.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/init.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
+            <state relative-caret-position="-215">
               <caret line="65" column="2" lean-forward="false" selection-start-line="65" selection-start-column="2" selection-end-line="65" selection-end-column="2" />
               <folding />
             </state>
@@ -88,10 +89,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
+            <state relative-caret-position="-180">
               <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
               <folding />
             </state>
@@ -165,10 +166,10 @@
         <option value="$PROJECT_DIR$/hunters/directd.js" />
         <option value="$PROJECT_DIR$/hunters/modules.js" />
         <option value="$PROJECT_DIR$/hunters/core/core.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/hunters/core/mongo.js" />
         <option value="$PROJECT_DIR$/hunters/bonia.js" />
         <option value="$PROJECT_DIR$/init.js" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -406,7 +407,7 @@
       <workItem from="1499788822848" duration="183000" />
       <workItem from="1499830697977" duration="658000" />
       <workItem from="1500100503212" duration="21610000" />
-      <workItem from="1500209273487" duration="2686000" />
+      <workItem from="1500209273487" duration="2819000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1499606986079</created>
@@ -611,16 +612,23 @@
       <option name="project" value="LOCAL" />
       <updated>1500211005419</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="-- added b uri environment variable">
+      <created>1500211963214</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1500211963214</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80944000" />
+    <option name="totallyTimeSpent" value="81077000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19838275" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19838275" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40029326" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -971,14 +979,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hunters/modules.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
@@ -1015,8 +1015,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/init.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
+        <state relative-caret-position="-215">
           <caret line="65" column="2" lean-forward="false" selection-start-line="65" selection-start-column="2" selection-end-line="65" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180">
+          <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
           <folding />
         </state>
       </provider>
