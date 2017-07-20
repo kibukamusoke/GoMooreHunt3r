@@ -22,6 +22,8 @@ console.log('set to run at ' + process.env.RUN_AT || 'sys var not set..');
 //modules.bonia();
 //modules.HnM();
 
+modules.charlsekeith();
+
 let runAt = runAtStr.split(':');
 let processAt = processAtStr.split(':');
 

@@ -14,6 +14,7 @@ let directdProcessor = require('./directd');
 let thmProcessor = require('./techhypermart');
 let boniaProcessor = require('./bonia');
 let HnMProcessor = require('./hm');
+let charlsekeithProcessor = require('./charlsekeith');
 
 module.exports = {
 
@@ -197,6 +198,20 @@ module.exports = {
             })
         }
 
+    },
+
+    charlsekeith: function () {
+        // last 11pages
+        for(let x=1;x<11;x++) {
+            let options = core.buildOptions('http://www.charleskeith.com/my/sale?p=' + x);
+            requestPromise(options)
+                .then(function ($) {
+                    charlsekeithProcessor.charlsekeithProcess($);
+                })
+                .catch(function (err) {
+                    console.log(err);
+                })
+        }
     },
 
     fos: function(){
