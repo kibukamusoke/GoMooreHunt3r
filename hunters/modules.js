@@ -13,6 +13,7 @@ let eosProcessor = require('./everydayonsale');
 let directdProcessor = require('./directd');
 let thmProcessor = require('./techhypermart');
 let boniaProcessor = require('./bonia');
+let HnMProcessor = require('./hm');
 
 module.exports = {
 
@@ -169,6 +170,27 @@ module.exports = {
             requestPromise(options).
             then(function($){
                 boniaProcessor.boniaProcess($)
+            }).
+            catch(function(err){
+                console.log(err);
+            })
+        }
+
+    },
+
+    HnM: function(){
+
+        let offerPages = [
+            'http://www2.hm.com/en_asia4/men/shop-by-product/view-all.html?product-type=men_all&sort=stock&offset=0&page-size=1000',
+            'http://www2.hm.com/en_asia4/ladies/shop-by-product/view-all.html?product-type=ladies_all&sort=stock&offset=0&page-size=1000',
+            'http://www2.hm.com/en_asia4/kids/shop-by-product/view-all.html?product-type=kids_all&sort=stock&offset=0&page-size=1000'
+        ];
+
+        for(let page of offerPages){
+            let options = core.buildOptions(page);
+            requestPromise(options).
+            then(function($){
+                HnMProcessor.hmProcess($);
             }).
             catch(function(err){
                 console.log(err);

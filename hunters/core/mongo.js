@@ -20,6 +20,7 @@ let connection;
 let collectionName = 'hunt3r';
 let databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 
+console.log('MONGO URI : ' + databaseUri);
 
 function getConnection () {
     return new Promise((resolve,reject) => {
