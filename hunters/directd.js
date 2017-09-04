@@ -30,6 +30,7 @@ module.exports = {
 
             let item = {
                 index:index,
+                type: 'store-sales',
                 source:'directd',
                 contact:'+603.5621.1355',
                 location:'LNo. 58,62,64,69,77,79 & 85 Jalan SS15/4B Subang Jaya, 47500 Selangor Malaysia',

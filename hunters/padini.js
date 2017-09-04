@@ -31,6 +31,7 @@ module.exports = {
             let newPrice = Price[1].trim();
             let item = {
                 index:index,
+                type: 'store-sales',
                 source:'padini',
                 contact:'+603 5021 0600',
                 location:'Lot G52,AEON Bukit Tinggi Shopping Centre NO.1, Persiaran Batu Nilam 1/KS6 Bandar Bukit Tinggi 2 Selangor Malaysia',

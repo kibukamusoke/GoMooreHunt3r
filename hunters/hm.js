@@ -56,6 +56,7 @@ module.exports = {
                     .then((description) => {
                         let item = {
                             index: index,
+                            type: 'store-sales',
                             source: 'H-and-M',
                             contact: '+60.35613.7288',
                             location: 'OB5.G.1, Sunway Pyramid Shopping Mall, 3, Jalan PJS 11/15, Bandar Sunway, Subang Jaya, 47500 Selangor, Malaysia',

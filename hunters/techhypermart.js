@@ -33,6 +33,7 @@ module.exports = {
 
                 let item = {
                     index:index,
+                    type: 'store-sales',
                     source:'techhypermart',
                     contact:'+03.8070.0996',
                     location:'Tech Hypermart SDN BHD (838654-D) 99, Jalan Kenari 23, Bandar Puchong Jaya, 47100 Puchong, Selangor.',

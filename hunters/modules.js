@@ -15,11 +15,27 @@ let thmProcessor = require('./techhypermart');
 let boniaProcessor = require('./bonia');
 let HnMProcessor = require('./hm');
 let charlsekeithProcessor = require('./charlsekeith');
+let bigsaleProcessor = require('./bigsale');
 
 module.exports = {
 
     processPosts: function () {
         core.processPostQueue();
+    },
+
+    bigsale: function () {
+        // last 20pages
+        for(let x=1;x<10;x++){
+            let options = core.buildOptions('http://www.bigsale.com.my/sale.aspx?pg='+x);
+            requestPromise(options).
+            then(function($){
+                bigsaleProcessor.bigsaleProcess($)
+            }).
+            catch(function(err){
+                console.log(err);
+            })
+        }
+
     },
 
     padini: function () {
@@ -58,13 +74,41 @@ module.exports = {
 
     },
 
-    eos: function () {
+    eosPromotions: function () {
         // last 20pages
         for(let x=1;x<21;x++) {
             let options = core.buildOptions('http://www.everydayonsales.com/promotion-and-sales-malaysia/page/' + x);
             requestPromise(options)
                 .then(function ($) {
-                    eosProcessor.eosProcess($);
+                    eosProcessor.eosProcess($, 'promotions');
+                })
+                .catch(function (err) {
+                    console.log(err);
+                })
+        }
+    },
+
+    eosEvents: function () {
+        // last 20pages
+        for(let x=1;x<21;x++) {
+            let options = core.buildOptions('http://www.everydayonsales.com/malaysia-event/page/' + x);
+            requestPromise(options)
+                .then(function ($) {
+                    eosProcessor.eosProcess($, 'events');
+                })
+                .catch(function (err) {
+                    console.log(err);
+                })
+        }
+    },
+
+    eosSales: function () {
+        // last 20pages
+        for(let x=1;x<21;x++) {
+            let options = core.buildOptions('http://www.everydayonsales.com/malaysia-sales/page/' + x);
+            requestPromise(options)
+                .then(function ($) {
+                    eosProcessor.eosProcess($, 'sales');
                 })
                 .catch(function (err) {
                     console.log(err);

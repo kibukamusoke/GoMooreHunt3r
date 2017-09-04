@@ -56,6 +56,7 @@ module.exports = {
                 .then((description) => {
                     let item = {
                         index: index,
+                        type: 'store-sales',
                         source: 'charlsekeith',
                         contact:'+60.37726.5522',
                         location:'Lot G307, Ground FLoor, Highstreet, 1 Utama Shopping Centre, 1, Lebuh Bandar Utama, Bandar Utama, 47800 Petaling Jaya, Selangor, Malaysia',
@@ -70,8 +71,8 @@ module.exports = {
                     let filter = {
                         url: href
                     };
-                    console.log(item);
-                    //db.update(filter,item); // upsert
+                    //console.log(item);
+                    db.update(filter,item); // upsert
                     //metadataJson.push(item);
                 })
                 .catch(err => {

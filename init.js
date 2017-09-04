@@ -22,21 +22,28 @@ console.log('set to run at ' + process.env.RUN_AT || 'sys var not set..');
 //modules.bonia();
 //modules.HnM();
 
-modules.charlsekeith();
+//modules.charlsekeith();
 
+//modules.bigsale();
+//modules.eos();
 let runAt = runAtStr.split(':');
 let processAt = processAtStr.split(':');
 
 let moment = require('moment');
 let now = moment();
-let formatted = now.format('YYYY-MM-DD HH:mm:ss Z');
-console.log(formatted)
+//let formatted = now.format('YYYY-MM-DD HH:mm:ss Z');
+//console.log(formatted);
 //modules.processPosts();
 
 function hunt(){
+    modules.bigsale();
     modules.padini();
     modules.uniqlo();
-    modules.eos();
+
+    modules.eosPromotions();
+    modules.eosEvents();
+    modules.eosSales();
+
     modules.directd();
     modules.techhypermart();
     modules.bonia();
@@ -48,7 +55,7 @@ schedule.scheduleJob({hour: Number(runAt[0]) + Number(timezoneOffset), minute:ru
 });
 
 schedule.scheduleJob({hour: Number(processAt[0]) + Number(timezoneOffset), minute:processAt[1]}, function () {
-    modules.processPosts();
+    //modules.processPosts();
 });
 
 

@@ -61,6 +61,7 @@ module.exports = {
                 .then((description) => {
                     let item = {
                         index: index,
+                        type: 'store-sales',
                         source: 'bonia',
                         contact:'+603.2284.1749',
                         location:'Lot G.031, Ground Floor, Mid Valley Megamall, Mid Valley City, 59200 Lingkaran Syed Putra, Federal Territory of Kuala Lumpur, Malaysia',

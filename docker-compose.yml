@@ -1,0 +1,38 @@
+parse-server:
+  #build: .
+  image: kibukamusoke/node-hunt3r
+  ports:
+    - "1337:1337"
+  environment:
+    PORT: 4408
+    DATABASE_URI: "mongodb://hunt3r:hunter123@172.17.0.1:27018/hunt3r"
+    RUN_AT: "23:00"
+    POST_URL: "https://a1.go-moore.com/index.php/Services/Campaign_Creation/add_campaign"
+  links:
+    - mongo
+  volumes:
+    - ./data:/cloud
+
+mongo:
+  image: mongo:3.0.8 # ref. https://github.com/ParsePlatform/parse-server/issues/1913
+  ports:
+    - "27018:27017"
+  volumes_from:
+    - mongo-data
+  environment:
+    MONGODB_USER: "hunt3r"
+    MONGODB_DATABASE: "hunt3r"
+    MONGODB_PASS: "hunt3r123"
+
+#  command: "--smallfiles --logpath=/dev/null --setParameter failIndexKeyTooLong=false --rest --auth"
+  command: "--smallfiles --logpath=/dev/null --setParameter failIndexKeyTooLong=false"
+# ref. http://www.diogogmt.com/running-mongodb-with-docker-and-compose/
+
+mongo-data:
+  image: mongo
+  volumes:
+    - ./db-data:/data/db
+  command: "--break-mongo --auth"
+
+
+# vim:set et ts=2 sw=2:
