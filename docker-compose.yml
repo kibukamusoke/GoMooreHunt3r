@@ -1,12 +1,12 @@
-parse-server:
+gomoore-hunter:
   #build: .
   image: kibukamusoke/node-hunt3r
   ports:
     - "1337:1337"
   environment:
     PORT: 4408
-    DATABASE_URI: "mongodb://hunt3r:hunter123@172.17.0.1:27018/hunt3r"
-    RUN_AT: "23:00"
+    DATABASE_URI: "mongodb://172.17.0.1:27018/hunt3r"
+    RUN_AT: "16:00"
     POST_URL: "https://a1.go-moore.com/index.php/Services/Campaign_Creation/add_campaign"
   links:
     - mongo
@@ -32,7 +32,7 @@ mongo-data:
   image: mongo
   volumes:
     - ./db-data:/data/db
-  command: "--break-mongo --auth"
+  command: "--break-mongo"
 
 
 # vim:set et ts=2 sw=2:
