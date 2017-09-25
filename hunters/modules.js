@@ -16,6 +16,7 @@ let boniaProcessor = require('./bonia');
 let HnMProcessor = require('./hm');
 let charlsekeithProcessor = require('./charlsekeith');
 let bigsaleProcessor = require('./bigsale');
+let dealsofamericaProcessor = require('./dealsofamerica');
 
 module.exports = {
 
@@ -23,32 +24,57 @@ module.exports = {
         core.processPostQueue();
     },
 
+    dealsOfamerica: function () {
+        // last 20pages
+        for(let x=1;x<5;x++){
+            setTimeout(() => {
+                let url = 'https://www.dealsofamerica.com';
+                if(x > 1){
+                    url = 'https://www.dealsofamerica.com/hot-deals-page'+x+'.php';
+                }
+                let options = core.buildOptions(url);
+                requestPromise(options).
+                then(function($){
+                    dealsofamericaProcessor.doaProcess($)
+                }).
+                catch(function(err){
+                    console.log(err);
+                })
+            }, 1);
+
+        }
+    },
+
     bigsale: function () {
         // last 20pages
         for(let x=1;x<10;x++){
-            let options = core.buildOptions('http://www.bigsale.com.my/sale.aspx?pg='+x);
-            requestPromise(options).
-            then(function($){
-                bigsaleProcessor.bigsaleProcess($)
-            }).
-            catch(function(err){
-                console.log(err);
-            })
+            setTimeout(() => {
+                let options = core.buildOptions('http://www.bigsale.com.my/sale.aspx?pg='+x);
+                requestPromise(options).
+                then(function($){
+                    bigsaleProcessor.bigsaleProcess($)
+                }).
+                catch(function(err){
+                    console.log(err);
+                })
+            }, 15000);
+
         }
 
     },
 
     padini: function () {
         // last 20pages
-        for(let x=1;x<21;x++){
-            let options = core.buildOptions('http://www.padini.com/deals.html?p='+x);
-            requestPromise(options).
-            then(function($){
-                padiniProcessor.padiniProcess($)
-            }).
-            catch(function(err){
-                console.log(err);
-            })
+        for(let x=1;x<21;x++) {
+            setTimeout(() => {
+                let options = core.buildOptions('http://www.padini.com/deals.html?p=' + x);
+                requestPromise(options).then(function ($) {
+                    padiniProcessor.padiniProcess($)
+                }).catch(function (err) {
+                    console.log(err);
+                })
+
+            }, 15000)
         }
 
     },
@@ -62,14 +88,14 @@ module.exports = {
         ];
 
         for(let page of offerPages){
-            let options = core.buildOptions(page);
-            requestPromise(options).
-            then(function($){
-                uniqloProcessor.uniqloProcess($)
-            }).
-            catch(function(err){
-                console.log(err);
-            })
+            setTimeout(() => {
+                let options = core.buildOptions(page);
+                requestPromise(options).then(function ($) {
+                    uniqloProcessor.uniqloProcess($)
+                }).catch(function (err) {
+                    console.log(err);
+                })
+            },15000);
         }
 
     },
@@ -77,55 +103,60 @@ module.exports = {
     eosPromotions: function () {
         // last 20pages
         for(let x=1;x<21;x++) {
-            let options = core.buildOptions('http://www.everydayonsales.com/promotion-and-sales-malaysia/page/' + x);
-            requestPromise(options)
-                .then(function ($) {
-                    eosProcessor.eosProcess($, 'promotions');
-                })
-                .catch(function (err) {
-                    console.log(err);
-                })
+            setTimeout(() => {
+                let options = core.buildOptions('http://www.everydayonsales.com/promotion-and-sales-malaysia/page/' + x);
+                requestPromise(options)
+                    .then(function ($) {
+                        eosProcessor.eosProcess($, 'promotions');
+                    })
+                    .catch(function (err) {
+                        console.log(err);
+                    })
+            },15000);
         }
     },
 
     eosEvents: function () {
         // last 20pages
         for(let x=1;x<21;x++) {
-            let options = core.buildOptions('http://www.everydayonsales.com/malaysia-event/page/' + x);
-            requestPromise(options)
-                .then(function ($) {
-                    eosProcessor.eosProcess($, 'events');
-                })
-                .catch(function (err) {
-                    console.log(err);
-                })
+            setTimeout(() => {
+                let options = core.buildOptions('http://www.everydayonsales.com/malaysia-event/page/' + x);
+                requestPromise(options)
+                    .then(function ($) {
+                        eosProcessor.eosProcess($, 'events');
+                    })
+                    .catch(function (err) {
+                        console.log(err);
+                    })
+            });
         }
     },
 
     eosSales: function () {
         // last 20pages
         for(let x=1;x<21;x++) {
-            let options = core.buildOptions('http://www.everydayonsales.com/malaysia-sales/page/' + x);
-            requestPromise(options)
-                .then(function ($) {
-                    eosProcessor.eosProcess($, 'sales');
-                })
-                .catch(function (err) {
-                    console.log(err);
-                })
+            setTimeout(() => {
+                let options = core.buildOptions('http://www.everydayonsales.com/malaysia-sales/page/' + x);
+                requestPromise(options)
+                    .then(function ($) {
+                        eosProcessor.eosProcess($, 'sales');
+                    })
+                    .catch(function (err) {
+                        console.log(err);
+                    })
+            },15000);
         }
     },
 
     directd: function () {
-
+        setTimeout(() => {
             let options = core.buildOptions('http://directd.com.my/newproducts');
-            requestPromise(options).
-            then(function($){
+            requestPromise(options).then(function ($) {
                 directdProcessor.directdProcess($);
-            }).
-            catch(function(err){
+            }).catch(function (err) {
                 console.log(err);
             })
+        },15000);
 
 
     },
@@ -211,14 +242,14 @@ module.exports = {
         ];
 
         for(let page of offerPages){
-            let options = core.buildOptions(page);
-            requestPromise(options).
-            then(function($){
-                boniaProcessor.boniaProcess($)
-            }).
-            catch(function(err){
-                console.log(err);
-            })
+            setTimeout(() => {
+                let options = core.buildOptions(page);
+                requestPromise(options).then(function ($) {
+                    boniaProcessor.boniaProcess($)
+                }).catch(function (err) {
+                    console.log(err);
+                })
+            },15000);
         }
 
     },
@@ -232,14 +263,14 @@ module.exports = {
         ];
 
         for(let page of offerPages){
-            let options = core.buildOptions(page);
-            requestPromise(options).
-            then(function($){
-                HnMProcessor.hmProcess($);
-            }).
-            catch(function(err){
-                console.log(err);
-            })
+            setTimeout(() => {
+                let options = core.buildOptions(page);
+                requestPromise(options).then(function ($) {
+                    HnMProcessor.hmProcess($);
+                }).catch(function (err) {
+                    console.log(err);
+                })
+            },15000);
         }
 
     },
