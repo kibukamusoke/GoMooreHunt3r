@@ -5,6 +5,7 @@
 let cheerio = require('cheerio');
 let requestPromise = require('request-promise');
 let core = require('./core/core');
+let Promise = require('bluebird');
 
 
 let padiniProcessor = require('./padini');
@@ -18,6 +19,178 @@ let charlsekeithProcessor = require('./charlsekeith');
 let bigsaleProcessor = require('./bigsale');
 let dealsofamericaProcessor = require('./dealsofamerica');
 
+
+let allstats = [];
+let allErrors = [];
+
+function formatSlackNotification(title, data) {
+    console.log(data);
+    if (data.length < 1) {
+        console.log('no data to format... aborting ...');
+        return;
+    }
+    let message = title + '\n';
+    message += '==============================='+'\n';
+
+    /*data.forEach((d, i) => {
+        if (i > 0) {
+            message += '---------------------------------';
+        }
+
+        Object.keys(d).forEach(function (key) {
+            let value = d[key];
+            message += key + ': ' + value;
+        });
+
+    });*/
+
+
+
+    message += data + '\n' + '================================';
+    return message
+
+}
+
+let thisDOA = function (url) {
+    return new Promise((resolve, reject) => {
+        let options = core.buildOptions(url);
+        requestPromise(options).then(function ($) {
+            dealsofamericaProcessor.doaProcess($)
+                .then(() => {
+                    resolve();
+                }).catch(() => {
+                resolve();
+            })
+        }).catch(function (err) {
+            console.log(err);
+            resolve();
+        })
+    })
+};
+
+
+let thisBigsale = function (url) {
+    console.log(url);
+    return new Promise((resolve, reject) => {
+        let options = core.buildOptions(url);
+        requestPromise(options).then(function ($) {
+            bigsaleProcessor.bigsaleProcess($)
+                .then((stats) => {
+
+                    resolve();
+                }).catch((e) => {
+
+                resolve(e);
+            })
+        }).catch(function (err) {
+            console.log(err);
+            resolve(e);
+        })
+    });
+};
+
+let thisPADINI = function (url) {
+
+    console.log(url);
+    return new Promise((resolve, reject) => {
+        let options = core.buildOptions(url);
+        requestPromise(options).then(function ($) {
+            padiniProcessor.padiniProcess($)
+                .then(resolve)
+                .catch(resolve);
+        }).catch(function (err) {
+            resolve();
+            console.log(err);
+        })
+    })
+
+};
+
+let thisUNIQLO = function (page) {
+    return new Promise((resolve, reject) => {
+
+        let options = core.buildOptions(page);
+        requestPromise(options).then(function ($) {
+            uniqloProcessor.uniqloProcess($)
+                .then(resolve)
+                .catch(resolve)
+        }).catch(function (err) {
+            console.log(err);
+            resolve();
+        })
+
+
+    });
+};
+
+let thisEOS = function (page) {
+    return new Promise((resolve, reject) => {
+
+        let options = core.buildOptions(page);
+        requestPromise(options)
+            .then(function ($) {
+                eosProcessor.eosProcess($, 'promotions')
+                    .then(resolve)
+                    .catch(resolve);
+            })
+            .catch(function (err) {
+                console.log(err);
+                resolve();
+            })
+
+    });
+};
+
+let thisTHM = function (page) {
+    return new Promise((resolve, reject) => {
+        let options = core.buildOptions(page);
+
+        requestPromise(options).then(function ($) {
+            thmProcessor.thmProcess($)
+                .then(resolve)
+                .catch(resolve);
+
+        }).catch(function (err) {
+            console.log(err);
+
+        })
+    })
+};
+
+let thisBONIA = function (page) {
+    return new Promise((resolve, reject) => {
+        let options = core.buildOptions(page);
+        requestPromise(options).then(function ($) {
+            boniaProcessor.boniaProcess($)
+                .then((stats) => {
+                    resolve();
+                }).catch((e) => {
+
+                resolve(e);
+            })
+        }).catch(function (err) {
+            console.log(err);
+            resolve(err);
+        })
+    });
+};
+
+
+let thisHnM = function (page) {
+    return new Promise((resolve, reject) => {
+
+        let options = core.buildOptions(page);
+        requestPromise(options).then(function ($) {
+            HnMProcessor.hmProcess($)
+                .then(resolve)
+                .catch(resolve);
+        }).catch(function (err) {
+            console.log(err);
+        })
+
+    });
+}
+
 module.exports = {
 
     processPosts: function () {
@@ -25,259 +198,318 @@ module.exports = {
     },
 
     dealsOfamerica: function () {
-        // last 20pages
-        for(let x=1;x<5;x++){
-            setTimeout(() => {
-                let url = 'https://www.dealsofamerica.com';
-                if(x > 1){
-                    url = 'https://www.dealsofamerica.com/hot-deals-page'+x+'.php';
-                }
-                let options = core.buildOptions(url);
-                requestPromise(options).
-                then(function($){
-                    dealsofamericaProcessor.doaProcess($)
-                }).
-                catch(function(err){
-                    console.log(err);
-                })
-            }, 1);
+        return new Promise((resolve, reject) => {
+            // last 20pages
+            let pages = [1, 2, 3, 4, 5];
+            pages.forEach((page, index) => {
+                pages[index] = 'https://www.dealsofamerica.com/hot-deals-page' + page + '.php';
+            });
 
-        }
+            let runAll = Promise.resolve(pages).map(thisDOA, {concurrency: 1});
+
+            runAll.then(() => {
+                console.log('all done');
+                core.postToSlack(formatSlackNotification('New Data','Deals or America promos hunt3d'))
+
+                resolve();
+            })
+        });
     },
 
     bigsale: function () {
         // last 20pages
-        for(let x=1;x<10;x++){
-            setTimeout(() => {
-                let options = core.buildOptions('http://www.bigsale.com.my/sale.aspx?pg='+x);
-                requestPromise(options).
-                then(function($){
-                    bigsaleProcessor.bigsaleProcess($)
-                }).
-                catch(function(err){
-                    console.log(err);
+        return new Promise((resolve, reject) => {
+            let successNotifications = [];
+            let errorNotifications = [];
+            let pages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 18, 20];
+
+            pages.forEach((page, index) => {
+                pages[index] = 'http://www.bigsale.com.my/sale.aspx?pg=' + page;
+            });
+
+
+            let runAll = Promise.resolve(pages).map(thisBigsale, {concurrency: 1});
+
+            runAll.then(() => {
+                console.log('all done');
+                core.postToSlack(formatSlackNotification('New Data','Big Sale Data Hunt3d'));
+                resolve();
+            });
+
+
+            /*
+
+            Promise.all(promises)
+                .then(() => {
+                    console.log('sending success notifications');
+                    successNotifications.forEach((notify, index) => {
+                        core.postToSlack(notify);
+                    });
+
+                    resolve()
                 })
-            }, 15000);
+                .catch((e) => {
+                    console.log(e);
+                    console.log('sending error notifications');
+                    errorNotifications.forEach((notify, index) => {
+                        core.postToSlack(notify);
+                    });
+                    reject(e);
+                });
 
-        }
-
+                */
+        });
     },
 
     padini: function () {
-        // last 20pages
-        for(let x=1;x<21;x++) {
-            setTimeout(() => {
-                let options = core.buildOptions('http://www.padini.com/deals.html?p=' + x);
-                requestPromise(options).then(function ($) {
-                    padiniProcessor.padiniProcess($)
-                }).catch(function (err) {
-                    console.log(err);
-                })
 
-            }, 15000)
-        }
+        return new Promise((resolve, reject) => {
+            // last 20pages
+            let pages = [];
+            for (let x = 1; x < 21; x++) {
+                pages.push('https://www.padini.com/deals.html?p=' + x);
+            }
+
+            console.log(pages);
+
+            let runAll = Promise.resolve(pages).map(thisPADINI, {concurrency: 1});
+
+            runAll.then(() => {
+                console.log('all done');
+                core.postToSlack(formatSlackNotification('New Data','Padini Data Hunt3d'));
+                resolve();
+            });
+
+
+        });
+
 
     },
 
-    uniqlo: function(){
+    uniqlo: function () {
 
-        let offerPages = [
-            'http://www.uniqlo.com/my/store/women/featured/e-member-special.html',
-            'http://www.uniqlo.com/my/store/men/featured/e-member-special.html',
-            'http://www.uniqlo.com/my/store/kids-babies/featured/e-member-special.html'
-        ];
+        return new Promise((resolve, reject) => {
 
-        for(let page of offerPages){
-            setTimeout(() => {
-                let options = core.buildOptions(page);
-                requestPromise(options).then(function ($) {
-                    uniqloProcessor.uniqloProcess($)
-                }).catch(function (err) {
-                    console.log(err);
-                })
-            },15000);
-        }
+            let pages = [
+                'http://www.uniqlo.com/my/store/women/featured/e-member-special.html',
+                'http://www.uniqlo.com/my/store/men/featured/e-member-special.html',
+                //'http://www.uniqlo.com/my/store/kids-babies/featured/e-member-special.html'
+            ];
+
+            let runAll = Promise.resolve(pages).map(thisUNIQLO, {concurrency: 1});
+
+            runAll.then(() => {
+                core.postToSlack(formatSlackNotification('New Data','UNIQLO Data Hunt3d'));
+                console.log('all done');
+                resolve();
+            });
+
+        })
+
 
     },
 
     eosPromotions: function () {
         // last 20pages
-        for(let x=1;x<21;x++) {
-            setTimeout(() => {
-                let options = core.buildOptions('http://www.everydayonsales.com/promotion-and-sales-malaysia/page/' + x);
-                requestPromise(options)
-                    .then(function ($) {
-                        eosProcessor.eosProcess($, 'promotions');
-                    })
-                    .catch(function (err) {
-                        console.log(err);
-                    })
-            },15000);
-        }
+        return new Promise((resolve, reject) => {
+            let pages = [];
+            for (let x = 1; x < 21; x++) {
+                pages.push('http://www.everydayonsales.com/promotion-and-sales-malaysia/page/' + x);
+            }
+
+
+            let runAll = Promise.resolve(pages).map(thisEOS, {concurrency: 1});
+
+            runAll.then(() => {
+                console.log('all done');
+                core.postToSlack(formatSlackNotification('New Data','EOS Promotions Data Hunt3d'));
+                resolve();
+            });
+        });
+
     },
 
     eosEvents: function () {
-        // last 20pages
-        for(let x=1;x<21;x++) {
-            setTimeout(() => {
-                let options = core.buildOptions('http://www.everydayonsales.com/malaysia-event/page/' + x);
-                requestPromise(options)
-                    .then(function ($) {
-                        eosProcessor.eosProcess($, 'events');
-                    })
-                    .catch(function (err) {
-                        console.log(err);
-                    })
+
+        return new Promise((resolve, reject) => {
+            let pages = [];
+            for (let x = 1; x < 21; x++) {
+                pages.push('http://www.everydayonsales.com/malaysia-event/page/' + x);
+            }
+
+            let runAll = Promise.resolve(pages).map(thisEOS, {concurrency: 1});
+
+            runAll.then(() => {
+                console.log('all done');
+                core.postToSlack(formatSlackNotification('New Data','EOS Events Data Hunt3d'));
+                resolve();
             });
-        }
+        })
+
     },
 
     eosSales: function () {
-        // last 20pages
-        for(let x=1;x<21;x++) {
-            setTimeout(() => {
-                let options = core.buildOptions('http://www.everydayonsales.com/malaysia-sales/page/' + x);
-                requestPromise(options)
-                    .then(function ($) {
-                        eosProcessor.eosProcess($, 'sales');
-                    })
-                    .catch(function (err) {
-                        console.log(err);
-                    })
-            },15000);
-        }
+        return new Promise((resolve, reject) => {
+            let pages = [];
+            for (let x = 1; x < 21; x++) {
+                pages.push('http://www.everydayonsales.com/malaysia-sales/page/' + x);
+            }
+
+            let runAll = Promise.resolve(pages).map(thisEOS, {concurrency: 1});
+
+            runAll.then(() => {
+                console.log('all done');
+                core.postToSlack(formatSlackNotification('New Data','EOS Sales Data Hunt3d'));
+                resolve();
+            });
+        })
+
     },
 
     directd: function () {
-        setTimeout(() => {
+        return new Promise((resolve, reject) => {
+
             let options = core.buildOptions('http://directd.com.my/newproducts');
             requestPromise(options).then(function ($) {
-                directdProcessor.directdProcess($);
+                directdProcessor.directdProcess($)
+                    .then(() => {
+                        console.log('all done');
+                        core.postToSlack(formatSlackNotification('New Data','Direct D Data Hunt3d'));
+                        resolve()
+                    }).catch((e) => {
+                    resolve();
+                })
             }).catch(function (err) {
                 console.log(err);
+                resolve();
             })
-        },15000);
+
+        })
 
 
     },
-    techhypermart: function(){
+    techhypermart: function () {
 
-        let root = 'http://www.techhypermart.com';
-        let pages = [
-            {
-                page: '/notebooks.html',
-                pageCount: 20
-            },
-            {
-                page: '/apple-mac.html',
-                pageCount: 1
-           },
-            {
-                page: '/mobile-phones.html',
-                pageCount: 3
-            },
-            {
-                page: '/tablets.html',
-                pageCount: 2
-            },
-            {
-                page: '/computers.html',
-                pageCount: 20
-            },
-            {
-                page: '/pc-parts/motherboard.html',
-                pageCount: 5
-            },
-            {
-                page: '/pc-parts/cpu-processors.html',
-                pageCount: 3
-            },
-            {
-                page: '/pc-parts/ram-memory.html',
-                pageCount: 4
-            },
-            {
-                page: '/pc-parts/laptop-parts.html',
-                pageCount:8
-            },
-            {
-                page: '/printer.html',
-                pageCount: 40
-            },
-            {
-                page: '/projector.html',
-                pageCount: 7
-            },
+        return new Promise((resolve, reject) => {
 
-        ];
+            let root = 'http://www.techhypermart.com';
+            let pages = [
+                {
+                    page: '/notebooks.html',
+                    pageCount: 20
+                },
+                {
+                    page: '/apple-mac.html',
+                    pageCount: 1
+                },
+                {
+                    page: '/mobile-phones.html',
+                    pageCount: 3
+                },
+                {
+                    page: '/tablets.html',
+                    pageCount: 2
+                },
+                {
+                    page: '/computers.html',
+                    pageCount: 20
+                },
+                {
+                    page: '/pc-parts/motherboard.html',
+                    pageCount: 5
+                },
+                {
+                    page: '/pc-parts/cpu-processors.html',
+                    pageCount: 3
+                },
+                {
+                    page: '/pc-parts/ram-memory.html',
+                    pageCount: 4
+                },
+                {
+                    page: '/pc-parts/laptop-parts.html',
+                    pageCount: 8
+                },
+                {
+                    page: '/printer.html',
+                    pageCount: 40
+                },
+                {
+                    page: '/projector.html',
+                    pageCount: 7
+                },
 
+            ];
 
-        for(let page of pages){
+            let p_pages = [];
 
-            for(let x=1;x<page.pageCount;x++){
-
-                let options = core.buildOptions(root + page.page+'?p='+x);
-
-                setTimeout(function () {
-                    requestPromise(options).
-                    then(function($){
-                        thmProcessor.thmProcess($)
-                    }).
-                    catch(function(err){
-                        console.log(err);
-                    },15000);
-                })
-
-
+            for (let page of pages) {
+                for (let x = 1; x < page.pageCount; x++) {
+                    p_pages.push(root + page.page + '?p=' + x);
+                }
             }
 
-        }
+            let runAll = Promise.resolve(p_pages).map(thisTHM, {concurrency: 1});
+
+            runAll.then(() => {
+                console.log('all done');
+                core.postToSlack(formatSlackNotification('New Data','Tech Hyper Mart Data Hunt3d'));
+                resolve();
+            })
+        });
+
 
     },
-    bonia: function(){
+    bonia: function () {
 
-        let offerPages = [
-            'http://www.bonia.com/promotion/women.html',
-            'http://www.bonia.com/promotion/men.html'
-        ];
 
-        for(let page of offerPages){
-            setTimeout(() => {
-                let options = core.buildOptions(page);
-                requestPromise(options).then(function ($) {
-                    boniaProcessor.boniaProcess($)
-                }).catch(function (err) {
-                    console.log(err);
-                })
-            },15000);
-        }
+        return new Promise((resolve, reject) => {
+
+            let successNotifications = [];
+            let errorNotifications = [];
+
+            let offerPages = [
+                'https://www.bonia.com/promotion/women/show/all.html',
+                'https://www.bonia.com/promotion/men/show/all.html'
+            ];
+
+            let runAll = Promise.resolve(offerPages).map(thisBONIA, {concurrency: 1});
+
+            runAll.then(() => {
+                console.log('all done');
+                core.postToSlack(formatSlackNotification('New Data','BONIA Data Hunt3d'));
+                resolve();
+            });
+
+        });
+
 
     },
 
-    HnM: function(){
+    HnM: function () {
 
-        let offerPages = [
-            'http://www2.hm.com/en_asia4/men/shop-by-product/view-all.html?product-type=men_all&sort=stock&offset=0&page-size=1000',
-            'http://www2.hm.com/en_asia4/ladies/shop-by-product/view-all.html?product-type=ladies_all&sort=stock&offset=0&page-size=1000',
-            'http://www2.hm.com/en_asia4/kids/shop-by-product/view-all.html?product-type=kids_all&sort=stock&offset=0&page-size=1000'
-        ];
+        return new Promise((resolve, reject) => {
+            let offerPages = [
+                'http://www2.hm.com/en_asia4/men/shop-by-product/view-all.html?product-type=men_all&sort=stock&offset=0&page-size=1000',
+                'http://www2.hm.com/en_asia4/ladies/shop-by-product/view-all.html?product-type=ladies_all&sort=stock&offset=0&page-size=1000',
+                'http://www2.hm.com/en_asia4/kids/shop-by-product/view-all.html?product-type=kids_all&sort=stock&offset=0&page-size=1000'
+            ];
 
-        for(let page of offerPages){
-            setTimeout(() => {
-                let options = core.buildOptions(page);
-                requestPromise(options).then(function ($) {
-                    HnMProcessor.hmProcess($);
-                }).catch(function (err) {
-                    console.log(err);
-                })
-            },15000);
-        }
+            let runAll = Promise.resolve(offerPages).map(thisHnM, {concurrency: 1});
+
+            runAll.then(() => {
+                console.log('all done');
+                core.postToSlack(formatSlackNotification('New Data','H and M Data Hunt3d'));
+                resolve();
+            });
+        });
+
 
     },
 
     charlsekeith: function () {
         // last 11pages
-        for(let x=1;x<11;x++) {
+        for (let x = 1; x < 11; x++) {
             let options = core.buildOptions('http://www.charleskeith.com/my/sale?p=' + x);
             requestPromise(options)
                 .then(function ($) {
@@ -289,7 +521,7 @@ module.exports = {
         }
     },
 
-    fos: function(){
+    fos: function () {
         console.log('get fos data??');
     }
 

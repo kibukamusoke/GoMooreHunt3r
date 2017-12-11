@@ -8,54 +8,65 @@ module.exports = {
 
     padiniProcess: function($){
 
-        let metadataJson = [];
-        let index = 0;
-        $('li.item').each(function (i, element) {
-            index++;
-            //console.log($(this));
-            let inner = $(this).children('.inner');
-            let productWrapper = inner.children('.product-image-wrapper');
-            let infoUrl = productWrapper.children();
-            let href = infoUrl.attr('href');
-            let imageInfo = infoUrl.children('img');
-            let image = imageInfo.attr('src');
+        return new Promise((resolve,reject) => {
 
-            let brandname = inner.children('.brand-name');
-            let productNameData = inner.children('h2');
-            let productNameDetail = productNameData.children();
-            let productName = productNameDetail.attr('title');
-            let price = inner.children('.price-box');
-            let PriceData = price.children();
-            let Price = PriceData.children('.price').text().replace('\\n','').trim().split('\n');
-            let oldPrice = Price[0].trim();
-            let newPrice = Price[1].trim();
-            let item = {
-                index:index,
-                type: 'store-sales',
-                source:'padini',
-                contact:'+603 5021 0600',
-                location:'Lot G52,AEON Bukit Tinggi Shopping Centre NO.1, Persiaran Batu Nilam 1/KS6 Bandar Bukit Tinggi 2 Selangor Malaysia',
-                url:href,
-                image:image,
-                brandname:brandname.text(),
-                productName:productName,
-                oldPrice:oldPrice,
-                newPrice:newPrice,
-                status:0
-            };
+            console.log('starting');
+            let metadataJson = [];
+            let index = 0;
+            let items = $('li.item');
+            items.each(function (i, element) {
+                index++;
+                //console.log($(this));
+                let inner = $(this).children('.inner');
+                let productWrapper = inner.children('.product-image-wrapper');
+                let infoUrl = productWrapper.children();
+                let href = infoUrl.attr('href');
+                let imageInfo = infoUrl.children('img');
+                let image = imageInfo.attr('src');
 
-            let filter = {
-              url:href
-            };
+                let brandname = inner.children('.brand-name');
+                let productNameData = inner.children('h2');
+                let productNameDetail = productNameData.children();
+                let productName = productNameDetail.attr('title');
+                let price = inner.children('.price-box');
+                let PriceData = price.children();
+                let Price = PriceData.children('.price').text().replace('\\n','').trim().split('\n');
+                let oldPrice = Price[0].trim();
+                let newPrice = Price[1].trim();
+                let item = {
+                    index:index,
+                    type: 'store-sales',
+                    source:'padini',
+                    contact:'+603 5021 0600',
+                    location:'Lot G52,AEON Bukit Tinggi Shopping Centre NO.1, Persiaran Batu Nilam 1/KS6 Bandar Bukit Tinggi 2 Selangor Malaysia',
+                    url:href,
+                    image:image,
+                    brandname:brandname.text(),
+                    productName:productName,
+                    oldPrice:oldPrice,
+                    newPrice:newPrice,
+                    status:0
+                };
 
-            db.update(filter,item); // upsert
-            metadataJson.push(item);
-            //console.log(item);
+                let filter = {
+                    url:href
+                };
+
+                db.update(filter,item); // upsert
+                metadataJson.push(item);
+                //console.log(item);
+                if(items.length -1 === i) {
+                    console.log('another page done');
+                    resolve();
+                }
+
+            });
+
+            //db.insert(metadataJson); // bulk insert
+            //console.log(metadataJson);
 
         });
 
-        //db.insert(metadataJson); // bulk insert
-        //console.log(metadataJson);
 
     },
 

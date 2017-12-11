@@ -5,6 +5,7 @@
 let cheerio = require('cheerio');
 let requestPromise = require('request-promise');
 let db = require('./mongo');
+let Promise = require('bluebird');
 
 function updateStatus(id, status) {
     filter = { _id: id};
@@ -96,6 +97,29 @@ module.exports = {
         });
 
 
+    },
+
+    postToSlack: function(data) {
+        let slackWebhook = 'https://hooks.slack.com/services/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';
+        let options = {
+            method: 'POST',
+            uri: process.env.SLACKWEBHOOK_URL || slackWebhook,
+            body: {text : data},
+            json: true // Automatically stringifies the body to JSON
+        };
+
+        return new Promise((resolve,reject) => {
+            requestPromise(options)
+                .then(function (parsedBody) {
+                    //console.log('success');
+                    //console.log(parsedBody);
+                    resolve(parsedBody);
+                })
+                .catch(function (err) {
+                    //console.log(err);
+                    reject(err);
+                });
+        });
     }
 
 

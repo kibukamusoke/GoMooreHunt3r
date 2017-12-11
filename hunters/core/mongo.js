@@ -13,7 +13,7 @@ let Db = require('mongodb').Db,
     GridStore = require('mongodb').GridStore,
     Grid = require('mongodb').Grid,
     Code = require('mongodb').Code,
-   // BSON = require('mongodb').pure().BSON,
+    // BSON = require('mongodb').pure().BSON,
     assert = require('assert');
 
 let connection;
@@ -22,9 +22,9 @@ let databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
 
 console.log('MONGO URI : ' + databaseUri);
 
-function getConnection () {
-    return new Promise((resolve,reject) => {
-        if(typeof connection !== 'undefined'){
+function getConnection() {
+    return new Promise((resolve, reject) => {
+        if (typeof connection !== 'undefined') {
             resolve(connection);
         } else {
             MongoClient.connect(
@@ -46,7 +46,7 @@ function getConnection () {
 
 
 let close = function () {
-    if(typeof connection !== 'undefined') {
+    if (typeof connection !== 'undefined') {
         connection.close();
     }
 };
@@ -54,12 +54,12 @@ let close = function () {
 module.exports = {
 
     close: function () {
-      close();
+        close();
     },
 
-    insert: function(docs){
+    insert: function (docs) {
         getConnection().then(connection =>
-                connection.collection(collectionName).insertMany(docs, function (err, result) {
+            connection.collection(collectionName).insertMany(docs, function (err, result) {
                 //assert.equal(null, err);
                 //assert.equal(1, result);
 
@@ -72,32 +72,39 @@ module.exports = {
 
     },
 
-    update: function(filter,doc,upsert=true,set=true){
-        if(set){
-            doc = {$set : doc};
-        }
-        //console.log(connection);
-        getConnection().then(connection =>
-            connection.collection(collectionName).updateOne(filter,doc,{upsert:upsert}, function (err, result) {
-                if (err) {
-                    console.log(err);
-                }
-                console.log('upserted ID : ' + result.upsertedId);
-            })
-        ).catch(error => {
-            console.log(error);
+    update: function (filter, doc, upsert = true, set = true) {
+        return new Promise((resolve, reject) => {
+            if (set) {
+                doc = {$set: doc};
+            }
+            //console.log(connection);
+            getConnection().then(connection =>
+                connection.collection(collectionName).updateOne(filter, doc, {upsert: upsert}, function (err, result) {
+                    if (err) {
+                        console.log(err);
+                        reject(err);
+                    }
+                    //console.log('upserted ID : ' + result.upsertedId);
+
+                    resolve(result.upsertedId);
+                })
+            ).catch(error => {
+                console.log(error);
+                reject(error);
+            });
         });
+
 
     },
 
-    query: function(filter,options){
-        return new Promise((resolve,reject) => {
+    query: function (filter, options) {
+        return new Promise((resolve, reject) => {
             getConnection().then(connection => {
                 let stream = connection.collection(collectionName)
                     .find(filter, options)
                     .stream();
 
-                if(stream){
+                if (stream) {
                     resolve(stream)
                 }
                 else {

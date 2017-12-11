@@ -8,6 +8,7 @@ gomoore-hunter:
     DATABASE_URI: "mongodb://hunt3r:hunt3r123@52.76.234.129:27017/hunt3r"
     RUN_AT: "02:44"
     POST_URL: "https://a1.go-moore.com/index.php/Services/Campaign_Creation/add_campaign"
+    SLACKWEBHOOK_URL: "https://hooks.slack.com/services/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"
   links:
     - mongo
   volumes:
